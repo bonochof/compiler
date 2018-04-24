@@ -58,11 +58,6 @@ tokens.flatten!.delete("")
 tokens.each_with_index do |token, i|
   token
 end
-=begin
-tokens.flatten!.delete_if do |token|
-  token == "" or token == " " or token == "\n"
-end
-=end
 
 # 表示
 tokens.each_with_index do |token, i|
