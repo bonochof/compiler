@@ -16,7 +16,7 @@ judges = []
 
 # 区切り文字判定
 def isseparater?(ch)
-  return true if ch.match(/\s|\W/) and ch != '#' and ch != '\\'
+  return true if ch.match(/\s|\W/)
   return false
 end
 
@@ -42,9 +42,9 @@ str.each_char do |ch|
 
   # 区切り文字の場合，分割して追加する
   if isseparater?(ch)
-    tokens << token #.partition(/\s|\W/)
+    tokens << token.partition(/\s|\W/)
     judges << state
-#    judges << EMPTY if count != 1
+    judges << EMPTY if count != 1
     # トークン初期化
     token = ""
     count = 0
@@ -54,10 +54,13 @@ str.each_char do |ch|
 end
 
 # 整形
-#tokens.flatten!.delete("")
-#tokens.each_with_index do |token, i|
-#  token
-#end
+tokens.flatten!.delete("")
+tokens.each_with_index do |token, i|
+  if token == "\n" or token == ' '
+    tokens.delete_at(i)
+    judges.delete_at(i)
+  end
+end
 
 # 表示
 tokens.each_with_index do |token, i|
