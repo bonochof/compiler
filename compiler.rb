@@ -54,16 +54,18 @@ str.each_char do |ch|
 end
 
 # 整形
+tokens_adj = []
+judges_adj = []
 tokens.flatten!.delete("")
 tokens.each_with_index do |token, i|
-  if token == "\n" or token == ' '
-    tokens.delete_at(i)
-    judges.delete_at(i)
+  if token != "\n" and token != ' '
+    tokens_adj << tokens[i]
+    judges_adj << judges[i]
   end
 end
 
 # 表示
-tokens.each_with_index do |token, i|
-  print token, "\t", judges[i], "\n"
+tokens_adj.each_with_index do |token, i|
+  print token, "\t", judges_adj[i], "\n"
 end
 
