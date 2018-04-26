@@ -1,6 +1,6 @@
 =begin
   識別子判定プログラム
-  compiler.c
+  compiler.rb
   7061-0503 Ryosuke Takata
 =end
 
